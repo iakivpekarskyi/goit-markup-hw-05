@@ -369,9 +369,6 @@ button:hover {
   letter-spacing: 0.03em;
 }
 
-.desk-button:hover {
-}
-
 /*=================== Team ==================*/
 
 .team {
@@ -597,7 +594,6 @@ address .link-phone:hover {
 
 .card {
   display: block;
-  
 }
 
 .card:hover,
@@ -673,8 +669,8 @@ a {
 
 .port-overlay {
   font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
+  font-style: normal;
+  font-weight: 400;
   position: absolute;
   top: 0%;
   left: 0%;
@@ -701,5 +697,5 @@ font-weight: 400;
 
 .card:hover .port-overlay,
 .card:focus .port-overlay {
-   transform: translateY(0%);
+  transform: translateY(0%);
 }
