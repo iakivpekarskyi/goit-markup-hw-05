@@ -12,6 +12,13 @@
   --button-hover: #188ce8;
   --social-link: #afb1b8;
   --backgorund-overlay: rgba(33, 150, 243, 0.9);
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color var(--transition-dur-and-func);
 }
 
 body {
@@ -45,10 +52,7 @@ ul ol {
   margin-bottom: 0;
   padding-left: 0;
 }
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
+
 .link {
   text-decoration: none;
 }
@@ -123,6 +127,7 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color var(--transition-dur-and-func);
 }
 
 .link.current {
@@ -136,6 +141,7 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color var(--transition-dur-and-func);
 }
 
 .site-nav .link:hover,
@@ -195,33 +201,6 @@ img {
   width: 700px;
 }
 
-.backdrop {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.form {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 528px;
-  height: 581px;
-  background: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
 /*=================== Overlay ==================*/
 
 .background {
@@ -354,7 +333,10 @@ button:hover {
   position: relative;
 }
 
-.desk {
+.desk-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   background: rgba(47, 48, 58, 0.8);
   width: 100%;
@@ -442,6 +424,7 @@ button:hover {
   height: 44px;
   border-radius: 50%;
   fill: var(--social-link);
+  transition: background-color var(--transition-dur-and-func);
 }
 
 .social-list-link:hover,
@@ -453,6 +436,7 @@ button:hover {
 .social-list-icon {
   width: 20px;
   height: 20px;
+  transition: fill var(--transition-dur-and-func);
 }
 
 /*=================== Clients ==================*/
@@ -478,6 +462,7 @@ button:hover {
   width: 170px;
   height: 92px;
   color: var(--social-link);
+  transition: color var(--transition-dur-and-func);
 }
 
 .clients-logo {
@@ -600,6 +585,7 @@ address .link-phone:hover {
 .card:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: box-shadow var(--transition-dur-and-func);
 }
 
 .port-item {
@@ -624,6 +610,8 @@ a {
   border-radius: 4px;
   display: inline-block;
   padding: 6px 25px;
+  transition: shadow var(--transition-dur-and-func), color var(--transition-dur-and-func),
+    background-color var(--transition-dur-and-func);
 }
 
 .porthead {
@@ -687,7 +675,7 @@ a {
   width: 100%;
   overflow: auto;
   transform: translateY(101%);
-  transition: transform 250ms linear;
+  transition: transform var(--transition-dur-and-func);
 }
 
 .portfolio-card-wrapper {
@@ -698,4 +686,53 @@ a {
 .card:hover .port-overlay,
 .card:focus .port-overlay {
   transform: translateY(0%);
+}
+
+/*  modal */
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: opacity 500ms ease, visibilty 500ms ease; 
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
