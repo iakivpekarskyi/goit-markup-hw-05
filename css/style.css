@@ -116,6 +116,7 @@ img {
 .site-nav.list {
   display: flex;
   gap: 50px;
+ 
 }
 
 .site-nav .link {
@@ -132,6 +133,43 @@ img {
 
 .link.current {
   color: var(--accent-color);
+  
+
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: var(--accent-color);
+}
+
+.line-box {
+  position: relative;
+
+}
+
+.link.line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: var(--accent-color);
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+.link.line:hover::before,
+.link.line:focus::before {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 .auth-nav .link {
@@ -184,6 +222,7 @@ img {
 .auth-nav.item {
   display: flex;
   align-items: center;
+  
 }
 
 /*=================== HERO ==================*/
@@ -698,13 +737,14 @@ a {
   top: 0px;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
-  transition: opacity 500ms ease, visibilty 500ms ease; 
+  transition: opacity 500ms ease, visibility 500ms ease; 
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  
 
 }
 
